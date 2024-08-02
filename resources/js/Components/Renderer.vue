@@ -4,7 +4,6 @@
     </div>
 </template>
 <script setup>
-import {ref} from 'vue';
 
 // TODO, this will load all the blocks, investigate if we can lazy load them without FOUC
 const blocks = import.meta.glob('./blocks/*.vue', { eager: true });

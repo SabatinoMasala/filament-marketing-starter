@@ -13,6 +13,30 @@ php artisan migrate
 php artisan filament:user
 ```
 
+Visit /admin and log in with the user you just created.
+Now you can manage pages & articles in the Filament admin panel.
+
+# How do blocks work?
+
+Blocks are a way to create reusable components that can be added to pages.
+We have a dynamic Renderer component that can render any block that is added to the `Components/blocks` directory.
+Using a glob Vite is able to load all the blocks and make them available to render:
+```
+// Template
+<component :is="getComponent(section.type)" :data="section.data" />
+
+// Script
+const blocks = import.meta.glob('./blocks/*.vue', { eager: true });
+const makeComponent = (name) => {
+    return blocks[`./blocks/${name}.vue`].default;
+}
+
+const getComponent = (type) => {
+    const component = capitalize(snakeToCamel(type));
+    return makeComponent(component);
+}
+```
+
 # Configuring an AWS serverless image handler
 
 This starter kit is able to use the AWS serverless image handler to resize images on the fly.
@@ -43,3 +67,21 @@ VITE_CDN_URL=... # The URL of the CloudFront distribution that serves the images
 
 And that's it, images uploaded to S3 will now be served through your serverless image handler.
 `resources/js/Helpers/Asset.js` is responsible for generating the URLs for the images.
+
+# SSR
+
+This starter kit is set up to use SSR with Laravel's Inertia.js.
+Simply run:
+```
+yarn build
+php artisan inertia:ssr
+```
+
+And you should be good to go.
+
+# Projects using this template
+
+Feel free to send a PR to add your project to the list.
+
+- https://unipage.be/nl
+- https://videomat.io/
