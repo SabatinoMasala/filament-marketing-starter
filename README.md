@@ -99,7 +99,7 @@ VITE_CDN_URL=... # The URL of the CloudFront distribution that serves the images
 ```
 
 And that's it, images uploaded to S3 will now be served through your serverless image handler.
-`resources/js/Helpers/Asset.js` is responsible for generating the URLs for the images.
+`resources/js/Helpers/Asset.js` is responsible for generating the URLs for the images as the URL needs to be base64 encoded.
 
 # SSR
 
