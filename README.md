@@ -1,5 +1,11 @@
 # Filament marketing starter
 
+In this video, I talked about how we use Filament over at [Unipage for our marketing website](https://unipage.be/nl).
+
+[![Watch the video](https://i.ytimg.com/vi/U5eViAKHD0o/maxresdefault.jpg)](https://youtu.be/U5eViAKHD0o)
+
+I've gotten a couple of requests to open-source the template, and here we are.
+
 # Getting started
 
 Clone the repository and run the following commands:
