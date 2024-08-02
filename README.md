@@ -99,11 +99,12 @@ VITE_CDN_URL=... # The URL of the CloudFront distribution that serves the images
 ```
 
 And that's it, images uploaded to S3 will now be served through your serverless image handler.
-`resources/js/Helpers/Asset.js` is responsible for generating the URLs for the images as the URL needs to be base64 encoded.
+`resources/js/Helpers/Asset.js` is responsible for generating the URLs for the images, as the URL needs to be base64 encoded.
 
 # SSR
 
 This starter kit is set up to use SSR with Laravel's Inertia.js.
+
 Simply run:
 ```
 yarn build
@@ -114,7 +115,7 @@ And you should be good to go.
 
 # Generating sitemaps
 
-This template uses https://github.com/spatie/laravel-sitemap to generate sitemaps, refer to the docs.
+This template uses https://github.com/spatie/laravel-sitemap to generate sitemaps, refer to the docs there.
 
 # Responsecache
 
