@@ -64,9 +64,9 @@ Next up, register the block in Filament/Resources/Blocks/RichContent.php
 
 ```php
 Builder\Block::make('youtube_section')
-->schema([
-    Forms\Components\TextInput::make('url'),
-]),
+    ->schema([
+        Forms\Components\TextInput::make('url'),
+    ]),
 ```
 
 And that should be it! If you add a YouTube section on a page, it should render this block.
