@@ -43,6 +43,36 @@ const getComponent = (type) => {
 }
 ```
 
+## Creating a new block
+
+If you want to create a new block, eg. a Youtube block, you can create a new file in the `Components/blocks` directory called `YoutubeSection.vue`:
+
+```vue
+<template>
+    <div>
+        <iframe width="560" height="315" :src="props.data.url" frameborder="0" allowfullscreen></iframe>
+    </div>
+</template>
+<script setup>
+const props = defineProps({
+    data: Object,
+})
+</script>
+```
+
+Next up, register the block in Filament/Resources/Blocks/RichContent.php
+
+```php
+Builder\Block::make('youtube_section')
+->schema([
+    Forms\Components\TextInput::make('url'),
+]),
+```
+
+And that should be it! If you add a YouTube section on a page, it should render this block.
+
+No need to register it in the Renderer component, it will be picked up automatically.
+
 # Configuring an AWS serverless image handler
 
 This starter kit is able to use the AWS serverless image handler to resize images on the fly.
@@ -90,4 +120,4 @@ And you should be good to go.
 Feel free to send a PR to add your project to the list.
 
 - https://unipage.be/nl
-- https://videomat.io/
+- https://videomat.io/en
