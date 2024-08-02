@@ -73,6 +73,33 @@ And that should be it! If you add a YouTube section on a page, it should render 
 
 No need to register it in the Renderer component, it will be picked up automatically.
 
+# How do settings work?
+
+[KeyValue](https://filamentphp.com/docs/3.x/forms/fields/key-value) in Filament only allows for strings to be added, but we found this was a bit too limiting.
+In this template, a Setting is an eloquent model with a key/value and a group. In Filament, the value of the setting is mapped to a single block, and in the code you can access the setting as follows:
+
+In PHP:
+```php
+c('routes.blog'); // 'Routes' is the group, 'blog' is the key
+```
+
+In Vue:
+```Vue
+<template>
+    <pre>$page.props.globals.routes.blog</pre>
+</template>
+<script setup>
+import {usePage} from "@inertiajs/vue3";
+const blog = usePage().props.globals.routes.blog;
+</script>
+```
+
+You can configure 'defaults' in the Config model, and when you deploy the website it's important these defaults get copied over to the database so you can customize them in Filament.
+In your deploy script, add the following command:
+```
+php artisan app:ensure-default-settings
+```
+
 # Configuring an AWS serverless image handler
 
 This starter kit is able to use the AWS serverless image handler to resize images on the fly.
@@ -102,11 +129,12 @@ VITE_CDN_URL=... # The URL of the CloudFront distribution that serves the images
 ```
 
 And that's it, images uploaded to S3 will now be served through your serverless image handler.
-`resources/js/Helpers/Asset.js` is responsible for generating the URLs for the images.
+`resources/js/Helpers/Asset.js` is responsible for generating the URLs for the images, as the URL needs to be base64 encoded.
 
 # SSR
 
 This starter kit is set up to use SSR with Laravel's Inertia.js.
+
 Simply run:
 ```
 yarn build
@@ -115,9 +143,24 @@ php artisan inertia:ssr
 
 And you should be good to go.
 
+# Generating sitemaps
+
+This template uses https://github.com/spatie/laravel-sitemap to generate sitemaps, refer to the docs there.
+
+# Responsecache
+
+This template uses https://github.com/spatie/laravel-responsecache to cache the entire response coming from a controller.
+By default, it is incompatible with Inertia, hence we created an [InertiaAwareCacheProfile](https://github.com/SabatinoMasala/filament-marketing-starter/blob/main/app/Http/CacheProfiles/InertiaAwareCacheProfile.php). Using this profile, the library is able to create 2 cached versions per page:
+- An HTML representation (first visit)
+- A JSON representation (subsequent visit using Inertia)
+
+When pages/posts/settings are updated, we need to clear the cache 2 times (JSON + HTML) as seen here: https://github.com/SabatinoMasala/filament-marketing-starter/blob/0fb1b3bdbb4d6d325e31d23ab88ec413e5cb9888/app/Models/Page.php#L23-L24
+
+Other than that, it's best practice to clear the entire cache when doing a deploy, so the new assets (js, css, images) are correctly loaded.
+
 # Projects using this template
 
 Feel free to send a PR to add your project to the list.
 
 - https://unipage.be/nl
-- https://videomat.io/en
+- https://videomat.io/
