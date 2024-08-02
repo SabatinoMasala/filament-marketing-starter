@@ -43,6 +43,33 @@ const getComponent = (type) => {
 }
 ```
 
+# How do settings work?
+
+[KeyValue](https://filamentphp.com/docs/3.x/forms/fields/key-value) in Filament only allows for strings to be added, but we found this was a bit too limiting.
+In this template, a Setting is an eloquent model with a key/value and a group. In Filament, the value of the setting is mapped to a single block, and in the code you can access the setting as follows:
+
+In PHP:
+```php
+c('routes.blog'); // 'Routes' is the group, 'blog' is the key
+```
+
+In Vue:
+```Vue
+<template>
+    <pre>$page.props.globals.routes.blog</pre>
+</template>
+<script setup>
+import {usePage} from "@inertiajs/vue3";
+const blog = usePage().props.globals.routes.blog;
+</script>
+```
+
+You can configure 'defaults' in the Config model, and when you deploy the website it's important these defaults get copied over to the database so you can customize them in Filament.
+In your deploy script, add the following command:
+```
+php artisan app:ensure-default-settings
+```
+
 # Configuring an AWS serverless image handler
 
 This starter kit is able to use the AWS serverless image handler to resize images on the fly.
