@@ -116,6 +116,17 @@ And you should be good to go.
 
 This template uses https://github.com/spatie/laravel-sitemap to generate sitemaps, refer to the docs.
 
+# Responsecache
+
+This template uses https://github.com/spatie/laravel-responsecache to cache the entire response coming from a controller.
+By default, it is incompatible with Inertia, hence we created an [InertiaAwareCacheProfile](https://github.com/SabatinoMasala/filament-marketing-starter/blob/main/app/Http/CacheProfiles/InertiaAwareCacheProfile.php). Using this profile, the library is able to create 2 cached versions per page:
+- An HTML representation (first visit)
+- A JSON representation (subsequent visit using Inertia)
+
+When pages/posts/settings are updated, we need to clear the cache 2 times (JSON + HTML) as seen here: https://github.com/SabatinoMasala/filament-marketing-starter/blob/0fb1b3bdbb4d6d325e31d23ab88ec413e5cb9888/app/Models/Page.php#L23
+
+Other than that, it's best practice to clear the entire cache when doing a deploy, so the new assets (js, css, images) are correctly loaded.
+
 # Projects using this template
 
 Feel free to send a PR to add your project to the list.
