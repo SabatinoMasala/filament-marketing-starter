@@ -112,6 +112,10 @@ php artisan inertia:ssr
 
 And you should be good to go.
 
+# Generating sitemaps
+
+This template uses https://github.com/spatie/laravel-sitemap to generate sitemaps, refer to the docs.
+
 # Projects using this template
 
 Feel free to send a PR to add your project to the list.
