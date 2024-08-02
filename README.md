@@ -124,7 +124,7 @@ By default, it is incompatible with Inertia, hence we created an [InertiaAwareCa
 - An HTML representation (first visit)
 - A JSON representation (subsequent visit using Inertia)
 
-When pages/posts/settings are updated, we need to clear the cache 2 times (JSON + HTML) as seen here: https://github.com/SabatinoMasala/filament-marketing-starter/blob/0fb1b3bdbb4d6d325e31d23ab88ec413e5cb9888/app/Models/Page.php#L23
+When pages/posts/settings are updated, we need to clear the cache 2 times (JSON + HTML) as seen here: https://github.com/SabatinoMasala/filament-marketing-starter/blob/0fb1b3bdbb4d6d325e31d23ab88ec413e5cb9888/app/Models/Page.php#L23-L24
 
 Other than that, it's best practice to clear the entire cache when doing a deploy, so the new assets (js, css, images) are correctly loaded.
 
