@@ -86,17 +86,7 @@ import UButton from "@/Components/UButton.vue";
 const route = usePage().props.ziggy.location;
 
 const bg = computed(() => {
-    if (!route) {
-        return 'bg-primary';
-    }
-    return (route.indexOf('kassa') !== -1 || route.indexOf('point-of-sales') !== -1) ? 'bg-[#222428]' : 'bg-primary'
-});
-
-const otherBg = computed(() => {
-    if (!route) {
-        return 'bg-black';
-    }
-    return route.indexOf('kassa') !== -1 ? 'bg-primary' : 'bg-black'
+    return 'bg-primary';
 });
 
 const isActive = (item) => {
