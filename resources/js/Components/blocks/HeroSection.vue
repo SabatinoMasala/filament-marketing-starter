@@ -6,8 +6,7 @@
                     <h1 :class="`${color}`" class="mt-24 text-4xl font-extrabold font-secondary tracking-tight">
                         {{ props.data.hero_title }}
                     </h1>
-                    <div :class="`${color}`" class="mt-6 text-lg leading-8" v-html="props.data.hero_content">
-                    </div>
+                    <div :class="`${color}`" class="mt-6 text-lg leading-8" v-html="props.data.hero_content"></div>
                     <div class="mt-10 flex items-center gap-x-6 flex-col md:flex-row space-y-3 md:space-y-0">
                         <template v-for="button in props.data.buttons">
                             <UButton :variant="button.variant" :href="button.url" :title="button.label" v-if="button.variant && button.variant !== 'transparent'" />
@@ -16,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
+            <div class="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0" v-if="props.data.hero_image">
                 <img class="aspect-[3/2] w-full object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full" :src="asset(props.data.hero_image)" alt="" />
             </div>
         </div>
