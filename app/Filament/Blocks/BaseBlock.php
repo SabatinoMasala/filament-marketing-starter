@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Blocks\RichContentBlocks;
+namespace App\Filament\Blocks;
 
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Form;

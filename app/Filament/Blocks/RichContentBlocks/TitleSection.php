@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Filament\Blocks\RichContentBlocks;
+use App\Filament\Blocks\BaseBlock;
 use Filament\Forms;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 
 class TitleSection extends BaseBlock
