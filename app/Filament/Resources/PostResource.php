@@ -2,22 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\Blocks\Properties;
-use App\Filament\Resources\Blocks\RichContent;
+use App\Filament\Blocks\Properties;
+use App\Filament\Blocks\RichContent;
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
-use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Support\Str;
 
 class PostResource extends Resource
 {
