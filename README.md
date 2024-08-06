@@ -60,18 +60,30 @@ const props = defineProps({
 </script>
 ```
 
-Next up, register the block in Filament/Resources/Blocks/RichContent.php
+Next up, create a new block in the Filament/Blocks/RichContentBlocks directory:
 
 ```php
-Builder\Block::make('youtube_section')
-    ->schema([
-        Forms\Components\TextInput::make('url'),
-    ]),
+<?php
+
+namespace App\Filament\Blocks\RichContentBlocks;
+use App\Filament\Blocks\BaseBlock;
+use Filament\Forms;
+use Filament\Forms\Form;
+
+class YoutubeSection extends BaseBlock
+{
+    static function schema(Form $form)
+    {
+        return [
+            Forms\Components\TextInput::make('url'),
+        ];
+    }
+}
 ```
 
 And that should be it! If you add a YouTube section on a page, it should render this block.
 
-No need to register it in the Renderer component, it will be picked up automatically.
+No need to register it in the Renderer component nor in the RichContent BlockGroup, it will be picked up automatically.
 
 # How do settings work?
 
