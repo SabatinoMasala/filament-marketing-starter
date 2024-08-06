@@ -2,22 +2,16 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\Blocks\Properties;
-use App\Filament\Resources\Blocks\RichContent;
-use App\Filament\Resources\Blocks\Slug;
+use App\Filament\BlockGroups\Properties;
+use App\Filament\BlockGroups\RichContent;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
-use Filament\Forms;
-use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Support\Str;
 
 class PageResource extends Resource
 {

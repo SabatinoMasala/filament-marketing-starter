@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Filament\Blocks\RichContentBlocks;
+use App\Filament\Blocks\BaseBlock;
+use Filament\Forms;
+use Filament\Forms\Form;
+
+class BlogSection extends BaseBlock
+{
+    static function schema(Form $form)
+    {
+        return [
+            Forms\Components\TextInput::make('per_page')->numeric()->default(9),
+        ];
+    }
+}
