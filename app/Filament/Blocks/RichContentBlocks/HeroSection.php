@@ -14,6 +14,7 @@ class HeroSection extends BaseBlock
             Forms\Components\Select::make('background')->options([
                 'black' => 'Black',
                 'primary' => 'Primary',
+                'secondary' => 'Secondary',
                 'white' => 'White',
             ]),
             FileUpload::make('hero_image')->image(),
