@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Blocks;
+namespace App\Filament\BlockGroups;
 
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Form;

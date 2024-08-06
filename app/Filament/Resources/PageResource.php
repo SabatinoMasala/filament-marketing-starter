@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Blocks\Properties;
-use App\Filament\Blocks\RichContent;
+use App\Filament\BlockGroups\Properties;
+use App\Filament\BlockGroups\RichContent;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
 use Filament\Forms\Form;

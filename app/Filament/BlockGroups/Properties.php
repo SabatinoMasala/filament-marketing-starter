@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Blocks;
+namespace App\Filament\BlockGroups;
 
 use Filament\Forms;
 use Filament\Forms\Components\DateTimePicker;

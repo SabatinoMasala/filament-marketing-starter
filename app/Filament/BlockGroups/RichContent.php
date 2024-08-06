@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Blocks;
+namespace App\Filament\BlockGroups;
 
 class RichContent extends BaseGroup
 {
     static function getLoaderConfiguration()
     {
         return [
-            'dir' => __DIR__ . '/RichContentBlocks',
+            'dir' => dirname(__DIR__) . '/Blocks/RichContentBlocks',
             'fqn' => '\\App\\Filament\\Blocks\\RichContentBlocks\\',
         ];
     }

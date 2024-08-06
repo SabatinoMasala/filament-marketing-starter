@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Blocks\Properties;
-use App\Filament\Blocks\RichContent;
+use App\Filament\BlockGroups\Properties;
+use App\Filament\BlockGroups\RichContent;
 use App\Filament\Resources\PostResource\Pages;
 use App\Models\Post;
 use Filament\Forms\Components\Hidden;
