@@ -18,7 +18,7 @@ class HeroSection extends BaseBlock
             ]),
             FileUpload::make('hero_image')->image(),
             Forms\Components\TextInput::make('hero_title'),
-            Forms\Components\RichEditor::make('hero_subtitle'),
+            Forms\Components\RichEditor::make('hero_content'),
             Forms\Components\Repeater::make('buttons')->schema([
                 Forms\Components\TextInput::make('label'),
                 Forms\Components\TextInput::make('url'),
