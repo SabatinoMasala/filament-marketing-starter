@@ -18,9 +18,6 @@ class PageController extends Controller
     {
         $page = Page::where('slug->' . app()->currentLocale(), $slug)->firstOrFail();
         $res = $this->render($page);
-        if (request('debug')) {
-            dd($page);
-        }
         return $res;
     }
 
